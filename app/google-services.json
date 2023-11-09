@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1034218320756",
+    "project_id": "obs-learn",
+    "storage_bucket": "obs-learn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034218320756:android:7f0da1ffeabc7f99b67221",
+        "android_client_info": {
+          "package_name": "com.sprtcoding.obslearn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034218320756-sktj3r78qsil2gd41l34sou5qpkeppi9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sprtcoding.obslearn",
+            "certificate_hash": "54698db50fa83884a327c9ae3369b215e7a3d3a0"
+          }
+        },
+        {
+          "client_id": "1034218320756-j2aenfgfm92b3ngh070smps5ae1da5c5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAck8TQAIBYAWuPgy-9ysfKP_UkumxsuHU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1034218320756-j2aenfgfm92b3ngh070smps5ae1da5c5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

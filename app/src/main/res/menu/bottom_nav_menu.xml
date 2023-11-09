@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_home"
+        android:icon="@drawable/home_18"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/bottom_statistics"
+        android:icon="@drawable/chart_user_18"
+        android:title="Statistics"/>
+
+    <item
+        android:id="@+id/bottom_learn"
+        android:icon="@drawable/book_copy_18"
+        android:title="Learn"/>
+
+    <item
+        android:id="@+id/bottom_about"
+        android:icon="@drawable/info_18"
+        android:title="About"/>
+
+    <item
+        android:id="@+id/bottom_profile"
+        android:icon="@drawable/user_18"
+        android:title="Profile"/>
+</menu>

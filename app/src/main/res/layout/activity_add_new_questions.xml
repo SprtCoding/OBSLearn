@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/profile_bg"
+    tools:context=".AdminMenu.Exams.AddNewQuestions">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        app:cardBackgroundColor="@color/secondColor">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                android:src="@drawable/arrow_left_24"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                app:tint="@color/white"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_below="@id/appBar"
+        android:id="@+id/cat_name"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:drawablePadding="10dp"
+        android:text="Add Question"
+        android:textColor="@color/primary_white"
+        android:textSize="@dimen/_20ssp"
+        android:letterSpacing=".2"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/cat_name"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/_15sdp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="Question"
+                app:hintTextColor="#2E2E2E"
+                android:textColorHint="#2E2E2E"
+                android:layout_width="match_parent"
+                app:endIconMode="clear_text"
+                app:helperText="Required"
+                app:helperTextTextColor="#BC5D5D"
+                app:boxStrokeColor="@color/thirdColor"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:startIconTint="@color/thirdColor"
+                app:endIconTint="@color/thirdColor"
+                app:boxBackgroundMode="outline"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/question_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:maxLines="5"
+                    android:lines="5"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="Option 1"
+                app:hintTextColor="#2E2E2E"
+                android:textColorHint="#2E2E2E"
+                app:startIconDrawable="@drawable/answer"
+                android:layout_width="match_parent"
+                app:endIconMode="clear_text"
+                app:helperText="Required"
+                app:helperTextTextColor="#BC5D5D"
+                app:boxStrokeColor="@color/thirdColor"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:startIconTint="@color/thirdColor"
+                app:endIconTint="@color/thirdColor"
+                app:boxBackgroundMode="outline"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/option1_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="Option 2"
+                app:hintTextColor="#2E2E2E"
+                android:textColorHint="#2E2E2E"
+                app:startIconDrawable="@drawable/answer"
+                android:layout_width="match_parent"
+                app:endIconMode="clear_text"
+                app:helperText="Required"
+                app:helperTextTextColor="#BC5D5D"
+                app:boxStrokeColor="@color/thirdColor"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:startIconTint="@color/thirdColor"
+                app:endIconTint="@color/thirdColor"
+                app:boxBackgroundMode="outline"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/option2_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="Option 3"
+                app:hintTextColor="#2E2E2E"
+                android:textColorHint="#2E2E2E"
+                app:startIconDrawable="@drawable/answer"
+                android:layout_width="match_parent"
+                app:endIconMode="clear_text"
+                app:helperText="Required"
+                app:helperTextTextColor="#BC5D5D"
+                app:boxStrokeColor="@color/thirdColor"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:startIconTint="@color/thirdColor"
+                app:endIconTint="@color/thirdColor"
+                app:boxBackgroundMode="outline"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/option3_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="Option 4"
+                app:hintTextColor="#2E2E2E"
+                android:textColorHint="#2E2E2E"
+                app:startIconDrawable="@drawable/answer"
+                android:layout_width="match_parent"
+                app:endIconMode="clear_text"
+                app:helperText="Required"
+                app:helperTextTextColor="#BC5D5D"
+                app:boxStrokeColor="@color/thirdColor"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:startIconTint="@color/thirdColor"
+                app:endIconTint="@color/thirdColor"
+                app:boxBackgroundMode="outline"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/option4_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="Answer"
+                app:hintTextColor="#2E2E2E"
+                android:textColorHint="#2E2E2E"
+                app:startIconDrawable="@drawable/answer"
+                android:layout_width="match_parent"
+                app:helperText="Required*"
+                app:helperTextTextColor="#BC5D5D"
+                app:boxStrokeColor="@color/thirdColor"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                app:startIconTint="@color/thirdColor"
+                app:endIconTint="@color/thirdColor"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/answerCTV"
+                    android:fontFamily="@font/poppins"
+                    android:inputType="none"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_15ssp"
+                android:padding="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                app:cornerRadius="@dimen/_25sdp"
+                android:id="@+id/save_btn"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

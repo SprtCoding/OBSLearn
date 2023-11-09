@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/_15sdp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/_5sdp">
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/_20sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cat Name"
+            android:textAllCaps="true"
+            android:textSize="@dimen/_18ssp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/black"
+            android:id="@+id/cat_name"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/test_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="0"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/_14ssp" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

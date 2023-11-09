@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/profile_bg"
+    tools:context=".AdminMenu.Exams.AboutUs">
+
+    <ImageView
+        android:id="@+id/back_btn_about"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/arrow_left_24"
+        app:tint="@color/primary_white" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/back_btn_about"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:src="@drawable/about_us"
+                android:scaleType="fitXY"/>
+
+            <GridLayout
+                android:scrollbars="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:rowCount="3"
+                android:columnCount="2">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/examCardView"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_gravity="fill"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="8dp"
+                    app:cardBackgroundColor="@color/primary_white">
+
+                    <LinearLayout
+                        android:padding="@dimen/_10sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center_vertical|center_horizontal">
+
+                        <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/jacob" />
+
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textAllCaps="true"
+                            android:textAlignment="center"
+                            android:text="Gauran, Jacob Isorina"
+                            android:textColor="@color/black"
+                            android:textSize="10sp"/>
+
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="jacobgauran_castsudent@omsc.ph.education"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:textSize="8sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="LEADER/PAPER WORKS and GRAPHIC DESIGNER"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:textSize="8sp"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/statisticsCardView"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_gravity="fill"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="8dp"
+                    app:cardBackgroundColor="@color/primary_white">
+
+                    <LinearLayout
+                        android:padding="@dimen/_10sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center_vertical|center_horizontal">
+
+                        <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/jasper" />
+
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textAllCaps="true"
+                            android:textAlignment="center"
+                            android:text="DIENTE, JASPER KENN YSUG"
+                            android:textColor="@color/black"
+                            android:textSize="10sp"/>
+
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Jasperdiente_caststudent@omsc.ph.education"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:textSize="8sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="RESEARCHER/PROGRAMMING"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:textSize="8sp"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/aboutCardView"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:layout_gravity="fill"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="8dp"
+                    app:cardBackgroundColor="@color/primary_white">
+
+                    <LinearLayout
+                        android:padding="@dimen/_10sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center_vertical|center_horizontal">
+
+                        <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/khate" />
+
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textAllCaps="true"
+                            android:textAlignment="center"
+                            android:text="BACURIN, VANESSA KHATE LLEGUE"
+                            android:textColor="@color/black"
+                            android:textSize="10sp"/>
+
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="vanessabacurin_caststudent@omsc.ph.education"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:textSize="8sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="RESEARCHER/DESIGNER"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:textSize="8sp"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/signOutCardView"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:layout_gravity="fill"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="8dp"
+                    app:cardBackgroundColor="@color/primary_white">
+
+                    <LinearLayout
+                        android:padding="@dimen/_10sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center_vertical|center_horizontal">
+
+                        <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/carla" />
+
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textAllCaps="true"
+                            android:textAlignment="center"
+                            android:text="ABRERA, CARLA MAY CASTILLO"
+                            android:textColor="@color/black"
+                            android:textSize="10sp"/>
+
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="carlaabrera_caststudent@omsc.oh.education"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:textSize="8sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="RESEARCHER/SYSTEM PLANNER"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:textSize="8sp"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

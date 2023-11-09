@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout">
+
+<include layout="@layout/activity_questions" />
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/firstColor"
+    android:layout_gravity="end">
+
+    <ImageView
+        android:id="@+id/close_drawer"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:elevation="3dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:src="@drawable/baseline_clear_24"
+        app:tint="@color/red" />
+
+    <RelativeLayout
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_35sdp">
+        
+        <ImageView
+            android:id="@+id/circle"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/circle"
+            app:tint="@color/green" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/circle"
+            android:layout_centerVertical="true"
+            android:text="Answered"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/green"
+            android:id="@+id/tv_green"/>
+
+        <ImageView
+            android:id="@+id/circle1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/circle"
+            android:layout_toStartOf="@id/tv_red"
+            app:tint="@color/red" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="UnAnswered"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/red"
+            android:id="@+id/tv_red"/>
+        
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@id/line1"
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <ImageView
+            android:id="@+id/circle3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/circle"
+            app:tint="@color/grey" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/circle3"
+            android:layout_centerVertical="true"
+            android:text="Vot Visited"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/grey"
+            android:id="@+id/tv_grey"/>
+
+        <ImageView
+            android:id="@+id/circle4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/circle"
+            android:layout_toStartOf="@id/tv_pink"
+            app:tint="@color/pink" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="Review"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/pink"
+            android:id="@+id/tv_pink"/>
+
+    </RelativeLayout>
+    
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/line2"
+        android:background="?android:attr/listDivider"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"/>
+
+    <GridView
+        android:id="@+id/quest_list_gv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/divider"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:columnWidth="60dp"
+        android:numColumns="auto_fit"
+        android:horizontalSpacing="16dp"
+        android:verticalSpacing="16dp"
+        android:padding="8dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true">
+
+
+
+    </GridView>
+
+</RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.OBSLearn"
+        tools:targetApi="31">
+        <activity
+            android:name=".Overview"
+            android:exported="false" />
+        <activity
+            android:name=".AdminMenu.Exams.AboutUs"
+            android:exported="false" />
+        <activity
+            android:name=".AdminMenu.Exams.UserStat"
+            android:exported="false" />
+        <activity
+            android:name=".AdminMenu.Exams.Statistics"
+            android:exported="false" />
+        <activity
+            android:name=".UserMenu.Calculator.AOGCalculator"
+            android:exported="false" />
+        <activity
+            android:name=".UserMenu.Module.DangerSignOfPregnancy"
+            android:exported="false" />
+        <activity
+            android:name=".UserMenu.Module.MinorSignOfPregnancy"
+            android:exported="false" />
+        <activity
+            android:name=".UserMenu.Module.ClinicVisitModule"
+            android:exported="false" />
+        <activity
+            android:name=".UserMenu.Module.NutritionDuringPregnancyModule"
+            android:exported="false" />
+        <activity
+            android:name=".UserMenu.Module.PrenatalCareModule"
+            android:exported="false" />
+        <activity
+            android:name=".AdminMenu.Exams.QuestionsList"
+            android:exported="false" />
+        <activity
+            android:name=".AdminMenu.Exams.AddNewQuestions"
+            android:exported="false" />
+        <activity
+            android:name=".AdminMenu.Exams.ShowTestList"
+            android:exported="false" />
+        <activity
+            android:name=".UserMenu.UsersChildMenu.QuestionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserMenu.UsersChildMenu.StartTestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserMenu.UsersChildMenu.TestChildCategories"
+            android:exported="false" />
+        <activity
+            android:name=".AdminMenu.Exams.AddChildTest"
+            android:exported="false" />
+        <activity
+            android:name=".AdminMenu.Exams.AdminExamCat"
+            android:exported="false" />
+        <activity
+            android:name=".UserMenu.UsersChildMenu.ExamCategories"
+            android:exported="false" />
+        <activity
+            android:name=".UserBasicInfo.UserBasicInformation"
+            android:exported="false" />
+        <activity
+            android:name=".UserDashBoard"
+            android:exported="false" />
+        <activity
+            android:name=".TwitterLoginPage"
+            android:exported="false" />
+        <activity
+            android:name=".AdminDashboardPage"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPasswordPage"
+            android:exported="false" />
+        <activity
+            android:name=".SignUpPage"
+            android:exported="false" />
+        <activity
+            android:name=".LoginPage"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

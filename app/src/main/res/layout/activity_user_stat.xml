@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminMenu.Exams.UserStat">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        app:cardBackgroundColor="@color/secondColor">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/back_btn"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:drawablePadding="10dp"
+                android:text="Student Statistics"
+                android:textColor="@color/primary_white"
+                android:textSize="@dimen/_12ssp"
+                android:letterSpacing=".2"
+                app:drawableStartCompat="@drawable/arrow_left_24"
+                app:drawableTint="@color/primary_white" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/student_info_ll"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/appBar"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/_20sdp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userPic"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/student_new"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Student Name"
+            android:textAlignment="center"
+            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:id="@+id/stud_name"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Student Email"
+            android:textAlignment="center"
+            android:textSize="10sp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            android:id="@+id/stud_email"/>
+
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/score_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/student_info_ll"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:horizontalSpacing="@dimen/_15sdp"
+        android:numColumns="2"
+        android:verticalSpacing="@dimen/_15sdp"
+        tools:listitem="@layout/stat_grid_items" />
+
+    <LinearLayout
+        android:id="@+id/no_data_ll"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/student_info_ll"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:padding="20dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:src="@drawable/no_data_pana"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Exams Found!"
+            android:textSize="18sp"
+            android:fontFamily="@font/comfortaa"
+            android:textColor="@color/black"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

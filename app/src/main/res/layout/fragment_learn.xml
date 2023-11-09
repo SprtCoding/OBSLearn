@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/profile_bg"
+    tools:context=".UserMenu.LearnFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        app:cardBackgroundColor="@color/secondColor">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:drawablePadding="10dp"
+                android:text="@string/app_name"
+                android:textColor="@color/primary_white"
+                android:textSize="@dimen/_18ssp"
+                android:letterSpacing=".2"
+                app:drawableStartCompat="@drawable/logosmall" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appBar"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:elevation="5dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A Module"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="in"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OB 1 - Care of the Newborn"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/secondColor"
+                    app:cardCornerRadius="15dp"
+                    android:id="@+id/parental_care_card">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+
+                        <ImageView
+                            android:id="@+id/img_parental"
+                            android:layout_width="150dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/parental_care"
+                            android:scaleType="fitXY"/>
+
+                        <LinearLayout
+                            android:layout_toEndOf="@id/img_parental"
+                            android:layout_alignTop="@id/img_parental"
+                            android:layout_alignBottom="@id/img_parental"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_10sdp"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Prenatal Care"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textStyle="bold"
+                                android:textColor="@color/primary_white"
+                                android:textSize="@dimen/_12ssp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rayna Grace Talactac-Colonia, RM, MAN"
+                                android:fontFamily="@font/poppins"
+                                android:textColor="@color/primary_white"
+                                android:textSize="@dimen/_8ssp"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/secondColor"
+                    app:cardCornerRadius="15dp"
+                    android:id="@+id/minor_discomfort_card">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+
+                        <ImageView
+                            android:id="@+id/img_minor_discomfort"
+                            android:layout_width="150dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/minor_discomfort"
+                            android:scaleType="fitXY"/>
+
+                        <LinearLayout
+                            android:layout_toEndOf="@id/img_minor_discomfort"
+                            android:layout_alignTop="@id/img_minor_discomfort"
+                            android:layout_alignBottom="@id/img_minor_discomfort"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_10sdp"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Minor Discomforts of Pregnancy"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textStyle="bold"
+                                android:textColor="@color/primary_white"
+                                android:textSize="@dimen/_12ssp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rayna Grace Talactac-Colonia, RM, MAN"
+                                android:fontFamily="@font/poppins"
+                                android:textColor="@color/primary_white"
+                                android:textSize="@dimen/_8ssp"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/secondColor"
+                    app:cardCornerRadius="15dp"
+                    android:id="@+id/danger_sign_card">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+
+                        <ImageView
+                            android:id="@+id/img_danger_sign"
+                            android:layout_width="150dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/danger_sign"
+                            android:scaleType="fitXY"/>
+
+                        <LinearLayout
+                            android:layout_toEndOf="@id/img_danger_sign"
+                            android:layout_alignTop="@id/img_danger_sign"
+                            android:layout_alignBottom="@id/img_danger_sign"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_10sdp"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Danger Signs of Pregnancy"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textStyle="bold"
+                                android:textColor="@color/primary_white"
+                                android:textSize="@dimen/_12ssp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rayna Grace Talactac-Colonia, RM, MAN"
+                                android:fontFamily="@font/poppins"
+                                android:textColor="@color/primary_white"
+                                android:textSize="@dimen/_8ssp"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/secondColor"
+                    app:cardCornerRadius="15dp"
+                    android:id="@+id/nutrition_card">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+
+                        <ImageView
+                            android:id="@+id/img_nutrition"
+                            android:layout_width="150dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/nutrition"
+                            android:background="@color/white"
+                            android:scaleType="centerInside"/>
+
+                        <LinearLayout
+                            android:layout_toEndOf="@id/img_nutrition"
+                            android:layout_alignTop="@id/img_nutrition"
+                            android:layout_alignBottom="@id/img_nutrition"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_10sdp"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nutrition During Pregnancy"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textStyle="bold"
+                                android:textColor="@color/primary_white"
+                                android:textSize="@dimen/_12ssp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rayna Grace Talactac-Colonia, RM, MAN"
+                                android:fontFamily="@font/poppins"
+                                android:textColor="@color/primary_white"
+                                android:textSize="@dimen/_8ssp"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/secondColor"
+                    app:cardCornerRadius="15dp"
+                    android:id="@+id/clinic_visit_card">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+
+                        <ImageView
+                            android:id="@+id/img_clinic_visit"
+                            android:layout_width="150dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/clinic_visit"
+                            android:scaleType="fitXY"/>
+
+                        <LinearLayout
+                            android:layout_toEndOf="@id/img_clinic_visit"
+                            android:layout_alignTop="@id/img_clinic_visit"
+                            android:layout_alignBottom="@id/img_clinic_visit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_10sdp"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Clinic Visit"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textStyle="bold"
+                                android:textColor="@color/primary_white"
+                                android:textSize="@dimen/_12ssp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rayna Grace Talactac-Colonia, RM, MAN"
+                                android:fontFamily="@font/poppins"
+                                android:textColor="@color/primary_white"
+                                android:textSize="@dimen/_8ssp"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

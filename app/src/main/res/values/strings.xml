@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">OBS Learn</string>
+    <string name="login">Login</string>
+    <string name="signup">Signup</string>
+    <string name="create_your_account_in_obs_learn">Create your account in OBS Learn.</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="or">or</string>
+    <string name="continue_with">Continue with</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up_btn">Sign Up</string>
+    <string name="login_to_your_existing_account">Login to your existing account.</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="pre_post">Pre / Post</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="post_partum_ncare_for_nmother_baby"><![CDATA[Post Partum\nCare for\nMother & Baby]]></string>
+    <string name="overview_desc">The goal of OBSLEARN is to provide a comprehensive learning platform for midwifery students, with a focus on obstetrics. This Android application is designed to help students develop their knowledge and skills in obstetrics. It offers educational resources, including lessons, and interactive content, to support students in their learning journey. Additionally, OBSLEARN features a test section to assess students understanding and retention of the material, along with an AOG (Age of Gestation) calculator to aid in pregnancy-related calculations. This the application aims to empower midwifery students to excel in their studies and future clinical practice.</string>
+
+    <!--    <string name="default_web_client_id" translatable="false">1034218320756-j2aenfgfm92b3ngh070smps5ae1da5c5.apps.googleusercontent.com</string>-->
+</resources>

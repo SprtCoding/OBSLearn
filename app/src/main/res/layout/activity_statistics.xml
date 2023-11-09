@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/profile_bg"
+    tools:context=".AdminMenu.Exams.Statistics">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        app:cardBackgroundColor="@color/secondColor">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/back_btn"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/balsamiq_sans"
+                android:drawablePadding="10dp"
+                android:text=""
+                android:textColor="@color/primary_white"
+                android:textSize="@dimen/_20ssp"
+                android:letterSpacing=".2"
+                app:drawableStartCompat="@drawable/arrow_left_24"
+                app:drawableTint="@color/primary_white" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_below="@id/appBar"
+        android:id="@+id/heroHeader"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/fullNameTB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:letterSpacing=".1"
+            android:text="List of Student"
+            android:textColor="@color/primary_white"
+            android:textSize="20sp" />
+
+        <GridView
+            android:id="@+id/student_grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:horizontalSpacing="@dimen/_15sdp"
+            android:numColumns="2"
+            android:verticalSpacing="@dimen/_15sdp"
+            android:scrollbars="none"
+            tools:listitem="@layout/student_list_grid" />
+
+    </LinearLayout>
+
+</RelativeLayout>

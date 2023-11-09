@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserMenu.UsersChildMenu.QuestionsActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        app:cardBackgroundColor="@color/secondColor">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1/1"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/primary_white"
+                android:id="@+id/q_count"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00 min"
+                android:layout_toEndOf="@id/q_count"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_alignTop="@id/q_count"
+                android:layout_alignBottom="@id/q_count"
+                android:drawablePadding="5dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/primary_white"
+                android:id="@+id/timer"
+                app:drawableStartCompat="@drawable/baseline_timer_24" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:fontFamily="@font/poppins_semibold"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:cornerRadius="@dimen/_25sdp"
+                android:letterSpacing=".2"
+                android:id="@+id/submit_btn"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/appBar2"
+        android:layout_below="@id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        app:cardBackgroundColor="@color/thirdColor">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cat name"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/primary_white"
+                android:id="@+id/cat_name"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/q_list"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_alignTop="@id/cat_name"
+                android:layout_alignBottom="@id/cat_name"
+                android:src="@drawable/baseline_bookmark_border_24"
+                android:id="@+id/fav" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:src="@drawable/baseline_apps_24"
+                android:id="@+id/q_list"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appBar2"
+        android:layout_above="@id/appBar3"
+        android:layout_centerHorizontal="true"
+        android:padding="@dimen/_10sdp"
+        tools:itemCount="1"
+        tools:listitem="@layout/questions_list"
+        android:id="@+id/q_rv"/>
+
+    <ImageView
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/q_rv"
+        android:rotation="90"
+        android:src="@drawable/bookmark"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/img_marked"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marked"
+        android:textColor="@color/white"
+        android:layout_alignTop="@id/img_marked"
+        android:layout_alignEnd="@id/img_marked"
+        android:layout_alignBottom="@id/img_marked"
+        android:layout_alignStart="@id/img_marked"
+        android:gravity="center"
+        android:textSize="10sp"
+        android:fontFamily="@font/baloo_chettan"
+        android:paddingStart="15dp"
+        android:paddingBottom="10dp"
+        android:id="@+id/marked_text"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/appBar3"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        app:cardBackgroundColor="@color/thirdColor">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:src="@drawable/baseline_keyboard_arrow_left_24"
+                android:id="@+id/left_arrow" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/tb_bg"
+                    android:drawablePadding="5dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:padding="@dimen/_10sdp"
+                    android:text="Clear Selection"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_10ssp"
+                    android:gravity="center"
+                    app:drawableStartCompat="@drawable/baseline_clear_24"
+                    app:drawableTint="@color/red" />
+
+                <TextView
+                    android:id="@+id/mark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:background="@drawable/tb_bg"
+                    android:drawablePadding="5dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:padding="@dimen/_10sdp"
+                    android:text="Mark for Review"
+                    android:textColor="@color/purple_700"
+                    android:textSize="@dimen/_10ssp"
+                    android:gravity="center"
+                    app:drawableStartCompat="@drawable/baseline_bookmark_border_24"
+                    app:drawableTint="@color/purple_700" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:src="@drawable/baseline_keyboard_arrow_right_24"
+                android:id="@+id/right_arrow"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

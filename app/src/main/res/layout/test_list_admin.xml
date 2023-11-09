@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/_10sdp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/_5sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_15sdp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/test_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test No: 1"
+            android:textSize="@dimen/_18ssp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/test_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00 min"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_12ssp"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:textColor="@color/black"
+            app:drawableStartCompat="@drawable/baseline_timer_24"
+            app:drawableTint="@color/black" />
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="#6BBDDE"
+                android:textSize="18sp"
+                android:drawablePadding="8dp"
+                android:id="@+id/edit_btn"
+                app:drawableStartCompat="@drawable/pen_square_18"
+                app:drawableTint="#6BBDDE" />
+
+            <TextView
+                android:layout_marginStart="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="#EE404C"
+                android:textSize="18sp"
+                android:drawablePadding="8dp"
+                android:id="@+id/delete_btn"
+                app:drawableStartCompat="@drawable/trash_18"
+                app:drawableTint="#EE404C" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

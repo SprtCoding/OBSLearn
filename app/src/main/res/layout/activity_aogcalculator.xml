@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".UserMenu.Calculator.AOGCalculator">
+    
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/arrow_left_24"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:contentDescription="buttons"
+                app:tint="@color/cardview_dark_background"
+                android:id="@+id/back_btn"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:layout_below="@id/back_btn"
+                android:layout_marginTop="15dp"
+                android:text="AOG Calculator"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="22sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_marginTop="15dp"
+                    android:text="Date of Visit"
+                    android:textColor="@color/cardview_dark_background"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/date_of_visit"
+                    android:background="@drawable/bg_tv"
+                    android:padding="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginTop="15dp"
+                    android:text="Date of Visit"
+                    android:gravity="center|start"
+                    android:drawablePadding="10dp"
+                    android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
+                    android:drawableStart="@drawable/baseline_calendar_month_24"
+                    android:drawableTint="@color/primary_white"
+                    android:textColor="@color/primary_white"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_marginTop="15dp"
+                    android:text="Last Menstrual Period (LMP)"
+                    android:textColor="@color/cardview_dark_background"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/lmp"
+                    android:background="@drawable/bg_tv"
+                    android:padding="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginTop="15dp"
+                    android:text="LMP"
+                    android:gravity="center|start"
+                    android:drawablePadding="10dp"
+                    android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
+                    android:drawableStart="@drawable/baseline_calendar_month_24"
+                    android:drawableTint="@color/primary_white"
+                    android:textColor="@color/primary_white"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_marginTop="15dp"
+                    android:text="Result"
+                    android:textColor="@color/cardview_dark_background"
+                    android:textSize="25sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_marginTop="15dp"
+                    android:text="Expected Date of Confinement"
+                    android:textColor="@color/cardview_dark_background"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/expected_date_confinement"
+                    android:background="@drawable/bg_tv"
+                    android:padding="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginTop="15dp"
+                    android:text="0"
+                    android:gravity="center|start"
+                    android:drawablePadding="10dp"
+                    android:backgroundTint="#219DCE"
+                    android:drawableStart="@drawable/baseline_calendar_month_24"
+                    android:drawableTint="@color/primary_white"
+                    android:textColor="@color/primary_white"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_marginTop="15dp"
+                    android:text="AOG in Days"
+                    android:textColor="@color/cardview_dark_background"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/aog_in_days"
+                    android:background="@drawable/bg_tv"
+                    android:padding="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginTop="15dp"
+                    android:text="0"
+                    android:gravity="center|start"
+                    android:backgroundTint="#219DCE"
+                    android:textColor="@color/primary_white"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_marginTop="15dp"
+                    android:text="AOG in Weeks"
+                    android:textColor="@color/cardview_dark_background"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/aog_in_weeks"
+                    android:background="@drawable/bg_tv"
+                    android:padding="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginTop="15dp"
+                    android:text="0"
+                    android:gravity="center|start"
+                    android:backgroundTint="#219DCE"
+                    android:textColor="@color/primary_white"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_marginTop="15dp"
+                    android:text="Trimester of Pregnancy"
+                    android:textColor="@color/cardview_dark_background"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/trimester"
+                    android:background="@drawable/bg_tv"
+                    android:padding="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginTop="15dp"
+                    android:text="0"
+                    android:gravity="center|start"
+                    android:backgroundTint="#219DCE"
+                    android:textColor="@color/primary_white"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/clear"
+                    android:background="@drawable/bg_tv"
+                    android:padding="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:layout_marginTop="35dp"
+                    android:text="Clear"
+                    android:gravity="center"
+                    android:backgroundTint="@color/red"
+                    android:textColor="@color/primary_white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

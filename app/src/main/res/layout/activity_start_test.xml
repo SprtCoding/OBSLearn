@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/profile_bg"
+    tools:context=".UserMenu.UsersChildMenu.StartTestActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        app:cardBackgroundColor="@color/secondColor">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                android:src="@drawable/arrow_left_24"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                app:tint="@color/white"/>
+
+            <TextView
+                android:id="@+id/cat_name"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:drawablePadding="10dp"
+                android:text="Examinations"
+                android:textColor="@color/primary_white"
+                android:textSize="@dimen/_14ssp"
+                android:letterSpacing=".2"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/no_data_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appBar"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:lottie_rawRes="@raw/no_data_found"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Questions Available"
+            android:textSize="@dimen/_15ssp"
+            android:textColor="#707070"
+            android:fontFamily="@font/comfortaa"
+            android:letterSpacing=".1"
+            android:layout_marginTop="@dimen/_10sdp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/with_data_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appBar"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/_10sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="test name"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_18ssp"
+            android:textColor="@color/black"
+            android:id="@+id/test_no"/>
+
+        <GridLayout
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:rowCount="2"
+            android:columnCount="3">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/examCardView"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_gravity="fill"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:padding="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical|center_horizontal">
+
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/question" />
+
+                    <TextView
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:text="Questions"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/q_counts"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/statisticsCardView"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:layout_gravity="fill"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:padding="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical|center_horizontal">
+
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/trophy" />
+
+                    <TextView
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:text="Best Score"
+                        android:textAlignment="center"
+                        android:letterSpacing=".1"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/b_score_counts"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/aboutCardView"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="2"
+                android:layout_gravity="fill"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:padding="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical|center_horizontal">
+
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/stopwatch" />
+
+                    <TextView
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:text="Time"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/timer_count"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="0 m"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:padding="@dimen/_20sdp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center_vertical|center_horizontal">
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/instruction" />
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Instructions"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="Select the correct answer."
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:id="@+id/start_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Start"
+            android:textColor="@color/primary_white"
+            android:textSize="@dimen/_14ssp"
+            android:padding="@dimen/_10sdp"
+            android:paddingStart="@dimen/_22sdp"
+            android:paddingEnd="@dimen/_22sdp"
+            app:cornerRadius="@dimen/_25sdp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="15dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/testType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test Type"
+            android:padding="15dp"
+            android:background="@color/thirdColor"
+            android:fontFamily="@font/balsamiq_sans"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp"
+            android:letterSpacing=".1"/>
+
+        <LinearLayout
+            android:id="@+id/questionLL"
+            android:layout_below="@id/testType"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/question"
+                android:padding="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Test Questions"
+                android:fontFamily="@font/balsamiq_sans"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp"
+                android:letterSpacing=".1"/>
+
+            <TextView
+                android:id="@+id/choices_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="choices 1"
+                android:padding="15dp"
+                android:background="@color/thirdColor"
+                android:fontFamily="@font/balsamiq_sans"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp"
+                android:letterSpacing=".1"/>
+
+            <TextView
+                android:id="@+id/choices_two"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="choices 2"
+                android:padding="15dp"
+                android:background="@color/thirdColor"
+                android:fontFamily="@font/balsamiq_sans"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp"
+                android:letterSpacing=".1"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/choices_three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="choices 3"
+                android:padding="15dp"
+                android:background="@color/thirdColor"
+                android:fontFamily="@font/balsamiq_sans"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp"
+                android:letterSpacing=".1"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/choices_four"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="choices 4"
+                android:padding="15dp"
+                android:background="@color/thirdColor"
+                android:fontFamily="@font/balsamiq_sans"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp"
+                android:letterSpacing=".1"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/deleteBtn"
+            android:layout_below="@id/questionLL"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:padding="15dp"
+            android:drawablePadding="10dp"
+            android:background="@color/red"
+            android:fontFamily="@font/balsamiq_sans"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp"
+            android:letterSpacing=".1"
+            app:drawableStartCompat="@drawable/baseline_delete_24" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
