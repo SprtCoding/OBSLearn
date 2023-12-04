@@ -63,8 +63,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/examCardView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_row="0"
                 android:layout_column="0"
                 android:layout_gravity="fill"
@@ -104,8 +104,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/statisticsCardView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_row="0"
                 android:layout_column="1"
                 android:layout_gravity="fill"
@@ -146,8 +146,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/aboutCardView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_row="1"
                 android:layout_column="0"
                 android:layout_gravity="fill"
@@ -187,8 +187,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/signOutCardView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_row="1"
                 android:layout_column="1"
                 android:layout_gravity="fill"

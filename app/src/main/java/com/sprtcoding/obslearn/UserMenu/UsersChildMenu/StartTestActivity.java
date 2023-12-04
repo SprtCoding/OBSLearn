@@ -26,7 +26,7 @@ import com.sprtcoding.obslearn.R;
 import com.sprtcoding.obslearn.Utility.NetworkChangeListener;
 
 public class StartTestActivity extends AppCompatActivity {
-    private TextView _cat_name, _test_no, _q_count, _b_score_count, _timer_count;
+    private TextView _cat_name, _test_no, _q_count, _timer_count;
     private MaterialButton _start_btn;
     private LinearLayout no_data_ll, with_data_ll;
     private ImageView _backBtn;
@@ -94,7 +94,6 @@ public class StartTestActivity extends AppCompatActivity {
         _cat_name = findViewById(R.id.cat_name);
         _test_no = findViewById(R.id.test_no);
         _q_count = findViewById(R.id.q_counts);
-        _b_score_count = findViewById(R.id.b_score_counts);
         _timer_count = findViewById(R.id.timer_count);
         _start_btn = findViewById(R.id.start_btn);
         _backBtn = findViewById(R.id.backBtn);
@@ -107,7 +106,6 @@ public class StartTestActivity extends AppCompatActivity {
         _cat_name.setText(g_catListModel.get(g_selected_cat_index).getNAME());
         _test_no.setText("Test No. " + (g_selected_test_index + 1));
         _q_count.setText(String.valueOf(g_questList.size()));
-        _b_score_count.setText(String.valueOf(g_testList.get(g_selected_test_index).getTopScore()));
         _timer_count.setText(g_testList.get(g_selected_test_index).getTime() + " m");
     }
 }

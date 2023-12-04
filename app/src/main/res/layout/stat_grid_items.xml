@@ -58,8 +58,19 @@
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="0/10"
+            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/black"
+            android:id="@+id/score"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Cat Name"
             android:textSize="@dimen/_12ssp"
+            android:textAlignment="center"
             android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/black"
             android:id="@+id/cat_name"/>

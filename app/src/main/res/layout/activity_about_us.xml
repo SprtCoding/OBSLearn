@@ -35,7 +35,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
+                android:layout_height="320dp"
                 android:src="@drawable/about_us"
                 android:scaleType="fitXY"/>
 
@@ -49,7 +49,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/examCardView"
-                    android:layout_width="150dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:layout_row="0"
                     android:layout_column="0"
@@ -111,7 +111,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/statisticsCardView"
-                    android:layout_width="150dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:layout_row="0"
                     android:layout_column="1"
@@ -173,7 +173,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/aboutCardView"
-                    android:layout_width="150dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:layout_row="1"
                     android:layout_column="0"
@@ -235,7 +235,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/signOutCardView"
-                    android:layout_width="150dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:layout_row="1"
                     android:layout_column="1"
@@ -296,6 +296,64 @@
                 </androidx.cardview.widget.CardView>
 
             </GridLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SUGGESTED LEARNING RESOURCES:"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book/Manual"
+                android:layout_gravity="start"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/l_1"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_gravity="start"
+                android:drawablePadding="10dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins"
+                android:textSize="12sp"
+                app:drawableStartCompat="@drawable/bullet_18" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/l_2"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_gravity="start"
+                android:drawablePadding="10dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins"
+                android:textSize="12sp"
+                app:drawableStartCompat="@drawable/bullet_18" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/l_3"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_gravity="start"
+                android:drawablePadding="10dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins"
+                android:textSize="12sp"
+                app:drawableStartCompat="@drawable/bullet_18" />
 
         </LinearLayout>
 

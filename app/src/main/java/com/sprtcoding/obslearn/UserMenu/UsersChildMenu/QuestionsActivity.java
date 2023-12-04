@@ -52,6 +52,7 @@ import com.sprtcoding.obslearn.Loadings.LoadingDialog;
 import com.sprtcoding.obslearn.R;
 import com.sprtcoding.obslearn.Utility.NetworkChangeListener;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -70,7 +71,6 @@ public class QuestionsActivity extends AppCompatActivity {
     private FirebaseUser user;
     private FirebaseFirestore db;
     QuestionsAdapter questionsAdapter;
-    String cat_name, timer_value, q_count;
     int questionID, correctQ = 0, finalScore = 0;
     NetworkChangeListener networkChangeListener = new NetworkChangeListener();
     @SuppressLint("SetTextI18n")
@@ -94,6 +94,8 @@ public class QuestionsActivity extends AppCompatActivity {
 
         _q_rv.setHasFixedSize(true);
         _q_rv.setLayoutManager(llm);
+
+        Collections.shuffle(g_questList);
 
         questionsAdapter = new QuestionsAdapter(this, g_questList);
         _q_rv.setAdapter(questionsAdapter);
@@ -274,7 +276,7 @@ public class QuestionsActivity extends AppCompatActivity {
         exit.setOnClickListener(view -> {
             loadingDialog.show();
             if(user != null) {
-                DBQuery.saveResult(user.getUid(), finalScore, new MyCompleteListener() {
+                DBQuery.saveResult(user.getUid(), finalScore, correctQ + "/" + g_questList.size(), new MyCompleteListener() {
                     @Override
                     public void onSuccess() {
                         loadingDialog.dismiss();

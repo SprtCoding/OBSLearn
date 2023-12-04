@@ -65,8 +65,9 @@ public class UserStat extends AppCompatActivity {
                                 for(QueryDocumentSnapshot doc : value) {
                                     scoreModelList.add(
                                             new ScoreModel(
-                                                    doc.getLong("TOTAL_SCORE").intValue(),
-                                                    doc.getString("ID")
+                                                    doc.getString("ID"),
+                                                    doc.getString("TOTAL_SCORE_NOT_PERCENT"),
+                                                    doc.getLong("TOTAL_SCORE").intValue()
                                             )
                                     );
                                 }

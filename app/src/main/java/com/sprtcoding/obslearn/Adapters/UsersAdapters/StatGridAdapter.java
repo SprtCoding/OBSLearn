@@ -57,12 +57,15 @@ public class StatGridAdapter extends BaseAdapter {
 
         TextView cat_name = view.findViewById(R.id.cat_name);
         TextView progress_value = view.findViewById(R.id.progress_value);
+        TextView scoreNum = view.findViewById(R.id.score);
         CircularProgressBar my_progress = view.findViewById(R.id.my_progress);
 
         cat_name.setText(scoreModel.getID());
         progress_value.setText(scoreModel.getTOTAL_SCORE() + "%");
         my_progress.setProgressMax(100f);
         my_progress.setProgress(scoreModel.getTOTAL_SCORE());
+
+        scoreNum.setText(scoreModel.getScoreNum());
 
         return view;
     }

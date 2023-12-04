@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.sprtcoding.obslearn.AdminMenu.Exams.AddNewQuestions;
 import com.sprtcoding.obslearn.AdminMenu.Exams.AdminExamCat;
 import com.sprtcoding.obslearn.AdminMenu.Exams.QuestionsList;
 import com.sprtcoding.obslearn.FireStoreDB.DBQuery;
@@ -56,6 +57,20 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.View
 
         holder.question.setText(questions.getQuestion());
 
+        holder.edit.setOnClickListener(view -> {
+            Intent i = new Intent(context, AddNewQuestions.class);
+            i.putExtra("isUpdate", true);
+            i.putExtra("QuestionID", questions.getQuestion_ID());
+            i.putExtra("Question", questions.getQuestion());
+            i.putExtra("Option1", questions.getOptionA());
+            i.putExtra("Option2", questions.getOptionB());
+            i.putExtra("Option3", questions.getOptionC());
+            i.putExtra("Option4", questions.getOptionD());
+            i.putExtra("ANSWER", questions.getCorrectAnswer());
+            i.putExtra("TEST_ID", questions.getTest_ID());
+            context.startActivity(i);
+        });
+
         holder.remove.setOnClickListener(view -> {
             deleteAlertBuilder.setTitle("Delete")
                     .setMessage("Are you sure want to delete this question?")
@@ -95,12 +110,13 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.View
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView question;
-        TextView remove;
+        TextView remove, edit;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             question = itemView.findViewById(R.id.question);
             remove = itemView.findViewById(R.id.remove);
+            edit = itemView.findViewById(R.id.edit_btn);
         }
     }
 }

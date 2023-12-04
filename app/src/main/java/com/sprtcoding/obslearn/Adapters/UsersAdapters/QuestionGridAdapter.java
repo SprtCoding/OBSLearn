@@ -53,12 +53,9 @@ public class QuestionGridAdapter extends BaseAdapter {
             v = view;
         }
 
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(context instanceof QuestionsActivity)
-                    ((QuestionsActivity)context).goToQuestion(i);
-            }
+        v.setOnClickListener(view1 -> {
+            if(context instanceof QuestionsActivity)
+                ((QuestionsActivity)context).goToQuestion(i);
         });
 
         TextView quesTV = v.findViewById(R.id.ques_num);

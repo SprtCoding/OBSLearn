@@ -119,10 +119,10 @@ public class LoginPage extends AppCompatActivity {
             handler.postDelayed(runnable, 2000);
         });
 
-        _twitterBtn.setOnClickListener(view -> {
-            Intent gotoTwitter = new Intent(this, TwitterLoginPage.class);
-            startActivity(gotoTwitter);
-        });
+//        _twitterBtn.setOnClickListener(view -> {
+//            Intent gotoTwitter = new Intent(this, TwitterLoginPage.class);
+//            startActivity(gotoTwitter);
+//        });
 
         //google sign in
 
@@ -388,7 +388,7 @@ public class LoginPage extends AppCompatActivity {
         _passET = findViewById(R.id.passET);
         _loginBtn = findViewById(R.id.loginBtn);
         _googleBtn = findViewById(R.id.googleLoginBtn);
-        _twitterBtn = findViewById(R.id.twitterLoginBtn);
+        //_twitterBtn = findViewById(R.id.twitterLoginBtn);
         _forgotPasswordBtn = findViewById(R.id.forgotPasswordBtn);
     }
 

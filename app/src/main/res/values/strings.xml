@@ -29,7 +29,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="post_partum_ncare_for_nmother_baby"><![CDATA[Post Partum\nCare for\nMother & Baby]]></string>
-    <string name="overview_desc">The goal of OBSLEARN is to provide a comprehensive learning platform for midwifery students, with a focus on obstetrics. This Android application is designed to help students develop their knowledge and skills in obstetrics. It offers educational resources, including lessons, and interactive content, to support students in their learning journey. Additionally, OBSLEARN features a test section to assess students understanding and retention of the material, along with an AOG (Age of Gestation) calculator to aid in pregnancy-related calculations. This the application aims to empower midwifery students to excel in their studies and future clinical practice.</string>
+    <string name="overview_desc">The goal of OBSLEARN is to provide a Computer-Assisted Instruction (CAI) for Midwifery students, with a focus on Prenatal. This Android application is designed to help students develop their knowledge. It offers educational lessons to support students in their learning journey. Additionally, OBSLEARN features a test section to assess students understanding and retention of the material, along with an  Age of Gestationcal (AOG) calculator to aid in pregnancy-related calculations. The application aims to empower Midwifery students to excel in their studies and future clinical practice.</string>
+    <string name="l_1"><![CDATA[Moini, Jahangir. (2016). Anatomy and Physiology for Health Professionals, 2nd ed. Jones & Barlet Learning, LLC, an Ascend Learning Company.]]></string>
+    <string name="l_2"><![CDATA[Pillitteri, Adele. (2013). Material and Child Health Nursing: Care of the Childbearing Family, 7th ed. Lippincott Williams & Wilkins.]]></string>
+    <string name="l_3">Department of Health. (2012). Quality Assurance Package for Midwives: Toolkit for Practicing Professional Midwives, Section 2.</string>
 
     <!--    <string name="default_web_client_id" translatable="false">1034218320756-j2aenfgfm92b3ngh070smps5ae1da5c5.apps.googleusercontent.com</string>-->
 </resources>

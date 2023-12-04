@@ -1,6 +1,7 @@
 package com.sprtcoding.obslearn.AdminMenu.Exams;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 
 import android.os.Bundle;
 import android.widget.GridView;
@@ -22,6 +23,7 @@ import java.util.List;
 public class Statistics extends AppCompatActivity {
     private GridView myGrid;
     private TextView back_btn;
+    private SearchView search_student;
     private List<UserModel> userList = new ArrayList<>();
     UserGridAdapter userGridAdapter;
     private FirebaseFirestore db;
@@ -58,10 +60,24 @@ public class Statistics extends AppCompatActivity {
                     }
                 });
 
+        search_student.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                userGridAdapter.getFilter().filter(newText);
+                return true;
+            }
+        });
+
         back_btn.setOnClickListener(view -> finish());
     }
 
     private void _init() {
+        search_student = findViewById(R.id.search_student);
         myGrid = findViewById(R.id.student_grid_view);
         back_btn = findViewById(R.id.back_btn);
     }

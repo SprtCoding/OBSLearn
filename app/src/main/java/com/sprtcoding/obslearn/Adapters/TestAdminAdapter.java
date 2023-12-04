@@ -98,6 +98,8 @@ public class TestAdminAdapter extends RecyclerView.Adapter<TestAdminAdapter.View
                                         public void onSuccess() {
                                             AdminExamCat.catGridAdminAdapter.notifyDataSetChanged();
                                             Toast.makeText(context, test.getTestID()+" Removed successfully.", Toast.LENGTH_SHORT).show();
+                                            Intent i = new Intent(context, AdminExamCat.class);
+                                            context.startActivity(i);
                                             loadingDialog.dismiss();
                                         }
 

@@ -1,22 +1,31 @@
 package com.sprtcoding.obslearn.Model;
 
 public class QuestionModel {
-    String Question, optionA, optionB, optionC, optionD, question_ID;
+    String Question, optionA, optionB, optionC, optionD, question_ID, test_ID;
     int CorrectAnswer, selectedAnswer, status;
 
     public QuestionModel() {
     }
 
-    public QuestionModel(String question, String optionA, String optionB, String optionC, String optionD, String question_ID, int correctAnswer, int selectedAnswer, int status) {
+    public QuestionModel(String question, String optionA, String optionB, String optionC, String optionD, String question_ID, String test_ID, int correctAnswer, int selectedAnswer, int status) {
         Question = question;
         this.optionA = optionA;
         this.optionB = optionB;
         this.optionC = optionC;
         this.optionD = optionD;
         this.question_ID = question_ID;
+        this.test_ID = test_ID;
         CorrectAnswer = correctAnswer;
         this.selectedAnswer = selectedAnswer;
         this.status = status;
+    }
+
+    public String getTest_ID() {
+        return test_ID;
+    }
+
+    public void setTest_ID(String test_ID) {
+        this.test_ID = test_ID;
     }
 
     public String getQuestion_ID() {

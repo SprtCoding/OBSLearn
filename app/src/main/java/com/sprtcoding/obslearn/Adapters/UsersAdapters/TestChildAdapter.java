@@ -1,5 +1,8 @@
 package com.sprtcoding.obslearn.Adapters.UsersAdapters;
 
+import static com.sprtcoding.obslearn.FireStoreDB.DBQuery.g_catListModel;
+import static com.sprtcoding.obslearn.FireStoreDB.DBQuery.g_selected_cat_index;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -56,20 +59,30 @@ public class TestChildAdapter extends RecyclerView.Adapter<TestChildAdapter.View
         holder.test_count.setText(testCatList.get(position).getTestID());
 
         if(user != null) {
-            userDoc = db.collection("USERS").document(user.getUid()).collection("MY_SCORE")
-                    .document(testCatList.get(position).getTestID())
+
+            db.collection("EXAMINATION")
+                    .document(g_catListModel.get(g_selected_cat_index).getCAT_ID())
                     .get()
-                    .addOnCompleteListener(task -> {
-                        if(task.isSuccessful()) {
-                            if(task.getResult().exists()) {
-                                int score = task.getResult().getLong("TOTAL_SCORE").intValue();
-                                holder.progress.setProgress(score);
-                                holder.progress_value.setText(score + " %");
-                            }
+                    .addOnSuccessListener(documentSnapshot -> {
+                        if(documentSnapshot.exists()) {
+                            String catName = documentSnapshot.getString("NAME");
+                            userDoc = db.collection("USERS").document(user.getUid()).collection("MY_SCORE")
+                                    .document(testCatList.get(position).getTestID() + "(" + catName + ")")
+                                    .get()
+                                    .addOnCompleteListener(task -> {
+                                        if(task.isSuccessful()) {
+                                            if(task.getResult().exists()) {
+                                                int score = task.getResult().getLong("TOTAL_SCORE").intValue();
+                                                holder.progress.setProgress(score);
+                                                holder.progress_value.setText(score + " %");
+                                            }
+                                        }
+                                    }).addOnFailureListener(e -> {
+                                        Toast.makeText(context, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    });
                         }
-                    }).addOnFailureListener(e -> {
-                        Toast.makeText(context, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    });
+                    })
+                    .addOnFailureListener(e -> Toast.makeText(context, ""+e.getMessage(), Toast.LENGTH_SHORT).show());
         }
 
         holder.itemView.setOnClickListener(view -> {

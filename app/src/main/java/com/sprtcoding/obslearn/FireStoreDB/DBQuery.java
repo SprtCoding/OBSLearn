@@ -4,26 +4,18 @@ import android.util.ArrayMap;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.WriteBatch;
 import com.sprtcoding.obslearn.Loadings.LoadingDialog;
 import com.sprtcoding.obslearn.Model.CatListModel;
 import com.sprtcoding.obslearn.Model.QuestionModel;
@@ -33,6 +25,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class DBQuery {
     public static FirebaseFirestore g_firestore;
@@ -62,9 +56,7 @@ public class DBQuery {
         userDoc.update(userData)
                 .addOnSuccessListener(unused -> {
                     myCompleteListener.onSuccess();
-                }).addOnFailureListener(e -> {
-                    myCompleteListener.onFailure(e);
-                });
+                }).addOnFailureListener(myCompleteListener::onFailure);
     }
 
     public static void setUserData(String email, String name, String id, String accountType, String dob, int age,
@@ -84,9 +76,7 @@ public class DBQuery {
         userDoc.set(userData)
                 .addOnSuccessListener(unused -> {
                     myCompleteListener.onSuccess();
-                }).addOnFailureListener(e -> {
-                    myCompleteListener.onFailure(e);
-                });
+                }).addOnFailureListener(myCompleteListener::onFailure);
     }
 
     public static void addUserCount() {
@@ -105,9 +95,7 @@ public class DBQuery {
 
         userDoc.update(userData).addOnSuccessListener(unused -> {
             myCompleteListener.onSuccess();
-        }).addOnFailureListener(e -> {
-            myCompleteListener.onFailure(e);
-        });
+        }).addOnFailureListener(myCompleteListener::onFailure);
     }
 
     public static void updateName(String name, MyCompleteListener myCompleteListener) {
@@ -119,9 +107,7 @@ public class DBQuery {
 
         userDoc.update(userData).addOnSuccessListener(unused -> {
             myCompleteListener.onSuccess();
-        }).addOnFailureListener(e -> {
-            myCompleteListener.onFailure(e);
-        });
+        }).addOnFailureListener(myCompleteListener::onFailure);
     }
 
     public static void updateEmail(String email, MyCompleteListener myCompleteListener) {
@@ -133,9 +119,7 @@ public class DBQuery {
 
         userDoc.update(userData).addOnSuccessListener(unused -> {
             myCompleteListener.onSuccess();
-        }).addOnFailureListener(e -> {
-            myCompleteListener.onFailure(e);
-        });
+        }).addOnFailureListener(myCompleteListener::onFailure);
     }
 
     public static void updateAge(int age, MyCompleteListener myCompleteListener) {
@@ -147,9 +131,7 @@ public class DBQuery {
 
         userDoc.update(userData).addOnSuccessListener(unused -> {
             myCompleteListener.onSuccess();
-        }).addOnFailureListener(e -> {
-            myCompleteListener.onFailure(e);
-        });
+        }).addOnFailureListener(myCompleteListener::onFailure);
     }
 
     public static void updateGender(String txt, MyCompleteListener myCompleteListener) {
@@ -161,9 +143,7 @@ public class DBQuery {
 
         userDoc.update(userData).addOnSuccessListener(unused -> {
             myCompleteListener.onSuccess();
-        }).addOnFailureListener(e -> {
-            myCompleteListener.onFailure(e);
-        });
+        }).addOnFailureListener(myCompleteListener::onFailure);
     }
 
     public static void updateDateOfBirth(String txt, MyCompleteListener myCompleteListener) {
@@ -175,9 +155,7 @@ public class DBQuery {
 
         userDoc.update(userData).addOnSuccessListener(unused -> {
             myCompleteListener.onSuccess();
-        }).addOnFailureListener(e -> {
-            myCompleteListener.onFailure(e);
-        });
+        }).addOnFailureListener(myCompleteListener::onFailure);
     }
 
     public static void setTest(String testID, String testType, String topics, String question, String c1, String c2, String c3, String c4, String correctAnswer, String time, String date, MyCompleteListener myCompleteListener) {
@@ -198,50 +176,75 @@ public class DBQuery {
 
         testDoc.set(test).addOnSuccessListener(unused -> {
             myCompleteListener.onSuccess();
-        }).addOnFailureListener(e -> {
-            myCompleteListener.onFailure(e);
-        });
+        }).addOnFailureListener(myCompleteListener::onFailure);
     }
 
     public static void removePrePostTest(String id, MyCompleteListener myCompleteListener) {
         Task<Void> testDoc = g_firestore.collection("EXAMINATION").document(id).delete();
         testDoc.addOnSuccessListener(unused -> {
             myCompleteListener.onSuccess();
-        }).addOnFailureListener(e -> {
-            myCompleteListener.onFailure(e);
-        });
+        }).addOnFailureListener(myCompleteListener::onFailure);
     }
 
     public static void loadCategories(MyCompleteListener myCompleteListener) {
         g_catListModel.clear();
 
         g_firestore.collection("EXAMINATION")
-                .get()
-                .addOnSuccessListener(queryDocumentSnapshots -> {
-                    if(!queryDocumentSnapshots.isEmpty()) {
-                        Map<String, QueryDocumentSnapshot> map = new ArrayMap<>();
+                .addSnapshotListener((value, error) -> {
+                    if(error == null && value != null) {
+                        if(!value.isEmpty()) {
+                            Map<String, QueryDocumentSnapshot> map = new ArrayMap<>();
 
-                        for(QueryDocumentSnapshot doc : queryDocumentSnapshots) {
-                            map.put(doc.getId(), doc);
+                            for(QueryDocumentSnapshot doc : value) {
+                                map.put(doc.getId(), doc);
+                            }
+
+                            QueryDocumentSnapshot catListDoc = map.get("Categories");
+
+                            assert catListDoc != null;
+                            long catCount = catListDoc.getLong("COUNT");
+
+                            for(int i = 1; i <= catCount; i++) {
+                                String catID = catListDoc.getString("CAT"+ i +"_ID");
+                                QueryDocumentSnapshot catDoc = map.get(catID);
+
+                                assert catDoc != null;
+                                int noOfTest = Objects.requireNonNull(catDoc.getLong("NO_OF_TEST")).intValue();
+                                String catName = catDoc.getString("NAME");
+                                g_catListModel.add(new CatListModel(catID, catName, noOfTest));
+                            }
+                            myCompleteListener.onSuccess();
                         }
-
-                        QueryDocumentSnapshot catListDoc = map.get("Categories");
-
-                        assert catListDoc != null;
-                        long catCount = catListDoc.getLong("COUNT");
-
-                        for(int i = 1; i <= catCount; i++) {
-                            String catID = catListDoc.getString("CAT"+ i +"_ID");
-                            QueryDocumentSnapshot catDoc = map.get(catID);
-
-                            assert catDoc != null;
-                            int noOfTest = catDoc.getLong("NO_OF_TEST").intValue();
-                            String catName = catDoc.getString("NAME");
-                            g_catListModel.add(new CatListModel(catID, catName, noOfTest));
-                        }
-                        myCompleteListener.onSuccess();
+                    } else {
+                        myCompleteListener.onFailure(error);
                     }
-                }).addOnFailureListener(e -> myCompleteListener.onFailure(e));
+                });
+//                .get()
+//                .addOnSuccessListener(queryDocumentSnapshots -> {
+//                    if(!queryDocumentSnapshots.isEmpty()) {
+//                        Map<String, QueryDocumentSnapshot> map = new ArrayMap<>();
+//
+//                        for(QueryDocumentSnapshot doc : queryDocumentSnapshots) {
+//                            map.put(doc.getId(), doc);
+//                        }
+//
+//                        QueryDocumentSnapshot catListDoc = map.get("Categories");
+//
+//                        assert catListDoc != null;
+//                        long catCount = catListDoc.getLong("COUNT");
+//
+//                        for(int i = 1; i <= catCount; i++) {
+//                            String catID = catListDoc.getString("CAT"+ i +"_ID");
+//                            QueryDocumentSnapshot catDoc = map.get(catID);
+//
+//                            assert catDoc != null;
+//                            int noOfTest = Objects.requireNonNull(catDoc.getLong("NO_OF_TEST")).intValue();
+//                            String catName = catDoc.getString("NAME");
+//                            g_catListModel.add(new CatListModel(catID, catName, noOfTest));
+//                        }
+//                        myCompleteListener.onSuccess();
+//                    }
+//                }).addOnFailureListener(myCompleteListener::onFailure);
     }
 
     public static void deleteTest(String catID, String testIDField, String testTimeField, String testID, MyCompleteListener myCompleteListener) {
@@ -259,26 +262,88 @@ public class DBQuery {
                     int noOfTest = g_catListModel.get(g_selected_cat_index).getNO_OF_TEST();
                     boolean testFound = false;
 
-                    if (document.contains(testIDField) && document.getString(testIDField).equals(testID)) {
+                    if (document.contains(testIDField) && Objects.equals(document.getString(testIDField), testID)) {
                         // Delete the test by setting its fields to null
                         testData.put(testIDField, FieldValue.delete());
                         testData.put(testTimeField, FieldValue.delete());
 
+                        //testDoc.update(testData);
+
                         int newNoOfTest = noOfTest - 1;
 
-                        g_firestore.collection("EXAMINATION")
-                                .document(catID)
-                                .update("NO_OF_TEST", newNoOfTest);
+                        if (newNoOfTest > 0) {
+                            Map<String, Object> testData1 = new HashMap<>();
+
+                            // Iterate over remaining test fields and update their names
+                            for (int i = 1; i <= newNoOfTest; i++) {
+
+                                // Update field names to fill the gap
+
+                                String currentTestID = document.getString("TEST" + (i + 1) + "_ID");
+                                int currentTestTime = document.getLong("TEST" + (i + 1) + "_TIME").intValue();
+
+                                testData.put("TEST" + i + "_ID", currentTestID);
+                                testData.put("TEST" + i + "_TIME", currentTestTime);
+
+//                                if(document.getString("TEST" + (i + 1) + "_ID") != null && document.getLong("TEST" + (i + 1) + "_TIME") != null) {
+//                                    String currentTestID = document.getString("TEST" + (i + 1) + "_ID");
+//                                    int currentTestTime = document.getLong("TEST" + (i + 1) + "_TIME").intValue();
+//
+//                                    testData.put("TEST" + i + "_ID", currentTestID);
+//                                    testData.put("TEST" + i + "_TIME", currentTestTime);
+//
+//                                    Log.d("dataaaa", testData1.toString());
+//                                }else {
+//                                    String currentTestID1 = document.getString("TEST" + (i + 2) + "_ID");
+//                                    int currentTestTime1 = document.getLong("TEST" + (i + 2) + "_TIME").intValue();
+//
+//                                    testData1.put("TEST" + i + "_ID", currentTestID1);
+//                                    testData1.put("TEST" + i + "_TIME", currentTestTime1);
+//
+//                                    Log.d("dataaaa", testData1.toString());
+//                                }
+
+                            }
+
+                            int duplicate = newNoOfTest + 1;
+                            // Remove the last test field, as it is now duplicated
+                            testData.put("TEST" + duplicate + "_ID", FieldValue.delete());
+                            testData.put("TEST" + duplicate + "_TIME", FieldValue.delete());
+
+                            // If there are still tests, update the NO_OF_TEST in the "EXAMINATION" document
+                            g_firestore.collection("EXAMINATION")
+                                    .document(catID)
+                                    .update("NO_OF_TEST", newNoOfTest)
+                                    .addOnSuccessListener(unused -> {
+                                        // Update the Firestore document to delete the test and adjust field names
+                                        testDoc.update(testData)
+                                                .addOnSuccessListener(unused1 -> myCompleteListener.onSuccess())
+                                                .addOnFailureListener(myCompleteListener::onFailure);
+                                    })
+                                    .addOnFailureListener(myCompleteListener::onFailure);
+
+                        } else {
+                            // If the number of tests is zero, delete the "TESTS_LIST" collection
+
+                            g_firestore.collection("EXAMINATION")
+                                    .document(catID)
+                                    .update("NO_OF_TEST", newNoOfTest)
+                                    .addOnSuccessListener(unused -> {
+                                        g_firestore.collection("EXAMINATION")
+                                                .document(catID)
+                                                .collection("TESTS_LIST")
+                                                .document("TESTS_INFO")
+                                                .delete()
+                                                .addOnSuccessListener(unused1 -> myCompleteListener.onSuccess())
+                                                .addOnFailureListener(myCompleteListener::onFailure);
+                                    })
+                                    .addOnFailureListener(myCompleteListener::onFailure);
+                        }
 
                         testFound = true;
                     }
 
-                    if (testFound) {
-                        // Update the Firestore document to delete the test
-                        testDoc.update(testData)
-                                .addOnSuccessListener(unused -> myCompleteListener.onSuccess())
-                                .addOnFailureListener(e -> myCompleteListener.onFailure(e));
-                    } else {
+                    if (!testFound) {
                         // Test with the specified testID was not found
                         myCompleteListener.onFailure(new Exception("Test not found."));
                     }
@@ -305,7 +370,7 @@ public class DBQuery {
                 Map<String, Object> testData = new HashMap<>();
                 if (document != null && document.exists()) {
 
-                    if (document.contains(testIDField) && document.getString(testIDField).equals(oldName)) {
+                    if (document.contains(testIDField) && Objects.equals(document.getString(testIDField), oldName)) {
                         // Update the name of the test
                         testData.put(testIDField, newName);
                         testData.put(testTimeField, testTIME);
@@ -329,7 +394,7 @@ public class DBQuery {
                         // Update the Firestore document with the new test name
                         testDoc.update(testData)
                                 .addOnSuccessListener(unused -> myCompleteListener.onSuccess())
-                                .addOnFailureListener(e -> myCompleteListener.onFailure(e));
+                                .addOnFailureListener(myCompleteListener::onFailure);
                     } else {
                         // Test with the specified testID was not found
                         myCompleteListener.onFailure(new Exception("Test not found."));
@@ -380,9 +445,9 @@ public class DBQuery {
 
                                 testDocUpdate.update(map)
                                         .addOnSuccessListener(unused1 -> myCompleteListener.onSuccess())
-                                        .addOnFailureListener(e -> myCompleteListener.onFailure(e));
+                                        .addOnFailureListener(myCompleteListener::onFailure);
                             })
-                            .addOnFailureListener(e -> myCompleteListener.onFailure(e));
+                            .addOnFailureListener(myCompleteListener::onFailure);
                 } else {
 
                     // Construct the field names for the new test
@@ -404,9 +469,9 @@ public class DBQuery {
 
                                 testDocUpdate.update(map)
                                         .addOnSuccessListener(unused1 -> myCompleteListener.onSuccess())
-                                        .addOnFailureListener(e -> myCompleteListener.onFailure(e));
+                                        .addOnFailureListener(myCompleteListener::onFailure);
                             })
-                            .addOnFailureListener(e -> myCompleteListener.onFailure(e));
+                            .addOnFailureListener(myCompleteListener::onFailure);
                 }
             } else {
                 myCompleteListener.onFailure(task.getException());
@@ -418,15 +483,19 @@ public class DBQuery {
         int lastTestNumber = 0;
         int noOfTest = g_catListModel.get(g_selected_cat_index).getNO_OF_TEST();
 
-        for (int i = 1; i <= noOfTest; i++) {
-            String testIDField = "TEST" + i + "_TIME";
-            if (document.contains(testIDField)) {
-                lastTestNumber = i;
-            } else {
-                // If a field is missing in sequence, break the loop
-                lastTestNumber = 1;
-                break;
+        if(noOfTest > 0) {
+            for (int i = 1; i <= noOfTest; i++) {
+                String testIDField = "TEST" + i + "_TIME";
+                if (document.contains(testIDField)) {
+                    lastTestNumber = i;
+                } else {
+                    // If a field is missing in sequence, break the loop
+                    lastTestNumber = 1;
+                    break;
+                }
             }
+        }else {
+            lastTestNumber = 1;
         }
 
         return lastTestNumber;
@@ -436,15 +505,19 @@ public class DBQuery {
         int lastTestNumber = 0;
         int noOfTest = g_catListModel.get(g_selected_cat_index).getNO_OF_TEST();
 
-        for (int i = 1; i <= noOfTest; i++) {
-            String testIDField = "TEST" + i + "_ID";
-            if (document.contains(testIDField)) {
-                lastTestNumber = i;
-            } else {
-                // If a field is missing in sequence, break the loop
-                lastTestNumber = 1;
-                break;
+        if(noOfTest > 0) {
+            for (int i = 1; i <= noOfTest; i++) {
+                String testIDField = "TEST" + i + "_ID";
+                if (document.contains(testIDField)) {
+                    lastTestNumber = i;
+                } else {
+                    // If a field is missing in sequence, break the loop
+                    lastTestNumber = 1;
+                    break;
+                }
             }
+        }else {
+            lastTestNumber = 1;
         }
 
         return lastTestNumber;
@@ -456,6 +529,41 @@ public class DBQuery {
         g_firestore.collection("EXAMINATION").document(g_catListModel.get(g_selected_cat_index).getCAT_ID())
                 .collection("TESTS_LIST")
                 .document("TESTS_INFO")
+//                .addSnapshotListener((value, error) -> {
+//                    if(error == null && value != null) {
+//                        if(value.exists()) {
+//                            int noOfTest = g_catListModel.get(g_selected_cat_index).getNO_OF_TEST();
+//
+//                            if(noOfTest > 0) {
+//                                for(int i = 1; i <= noOfTest; i++) {
+//                                    g_testList.add(new TestCatModel(
+//                                            value.getString("TEST" + i + "_ID"),
+//                                            "TEST" + i + "_ID",
+//                                            "TEST" + i + "_TIME",
+//                                            0,
+//                                            value.getLong("TEST" + i + "_TIME").intValue()
+//                                    ));
+//                                }
+//                            }else {
+//                                g_testList.add(new TestCatModel(
+//                                        value.getString("TEST" + 1 + "_ID"),
+//                                        "TEST" + 1 + "_ID",
+//                                        "TEST" + 1 + "_TIME",
+//                                        0,
+//                                        value.getLong("TEST" + 1 + "_TIME").intValue()
+//                                ));
+//                            }
+//
+//                            myCompleteListener.onSuccess();
+//                        }else {
+//                            loadingDialog.dismiss();
+//                            no_data.setVisibility(View.VISIBLE);
+//                            rv.setVisibility(View.GONE);
+//                        }
+//                    }else {
+//                        myCompleteListener.onFailure(error);
+//                    }
+//                });
                 .get()
                 .addOnSuccessListener(documentSnapshot -> {
                     if(documentSnapshot.exists()) {
@@ -463,13 +571,23 @@ public class DBQuery {
                         Log.d("FirestoreListener", "Document changed: " + documentSnapshot);
                         int noOfTest = g_catListModel.get(g_selected_cat_index).getNO_OF_TEST();
 
-                        for(int i = 1; i <= noOfTest; i++) {
+                        if(noOfTest > 0) {
+                            for(int i = 1; i <= noOfTest; i++) {
+                                g_testList.add(new TestCatModel(
+                                        documentSnapshot.getString("TEST" + i + "_ID"),
+                                        "TEST" + i + "_ID",
+                                        "TEST" + i + "_TIME",
+                                        0,
+                                        documentSnapshot.getLong("TEST" + i + "_TIME").intValue()
+                                ));
+                            }
+                        }else {
                             g_testList.add(new TestCatModel(
-                                    documentSnapshot.getString("TEST" + i + "_ID"),
-                                    "TEST" + i + "_ID",
-                                    "TEST" + i + "_TIME",
+                                    documentSnapshot.getString("TEST" + 1 + "_ID"),
+                                    "TEST" + 1 + "_ID",
+                                    "TEST" + 1 + "_TIME",
                                     0,
-                                    documentSnapshot.getLong("TEST" + i + "_TIME").intValue()
+                                    documentSnapshot.getLong("TEST" + 1 + "_TIME").intValue()
                             ));
                         }
 
@@ -501,6 +619,7 @@ public class DBQuery {
                                         doc.getString("C"),
                                         doc.getString("D"),
                                         doc.getString("QUESTION_ID"),
+                                        doc.getString("TEST"),
                                         doc.getLong("ANSWER").intValue(),
                                         -1,
                                         NOT_VISITED
@@ -579,21 +698,33 @@ public class DBQuery {
                 .addOnFailureListener(myCompleteListener::onFailure);
     }
 
-    public static void saveResult(String id, int score, MyCompleteListener myCompleteListener) {
+    public static void saveResult(String id, int score, String numScore, MyCompleteListener myCompleteListener) {
 
-        DocumentReference userDoc = g_firestore.collection("USERS")
-                .document(id).collection("MY_SCORE").document(g_testList.get(g_selected_test_index).getTestID());
+        g_firestore.collection("EXAMINATION")
+                .document(g_catListModel.get(g_selected_cat_index).getCAT_ID())
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
 
-        Map<String, Object> map = new HashMap<>();
-        map.put("TOTAL_SCORE", score);
-        map.put("ID", g_testList.get(g_selected_test_index).getTestID());
+                    String catName = documentSnapshot.getString("NAME");
 
-        // Handle Firestore exception
-        userDoc.set(map).addOnSuccessListener(unused -> {
-                    if (score > g_testList.get(g_selected_test_index).getTopScore()) {
-                        g_testList.get(g_selected_test_index).setTopScore(score);
+                    if(documentSnapshot.exists()) {
+                        DocumentReference userDoc = g_firestore.collection("USERS")
+                                .document(id).collection("MY_SCORE").document(g_testList.get(g_selected_test_index).getTestID() + "(" + catName + ")");
+
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("TOTAL_SCORE", score);
+                        map.put("TOTAL_SCORE_NOT_PERCENT", numScore);
+                        map.put("ID", g_testList.get(g_selected_test_index).getTestID());
+
+                        // Handle Firestore exception
+                        userDoc.set(map).addOnSuccessListener(unused -> {
+                                    if (score > g_testList.get(g_selected_test_index).getTopScore()) {
+                                        g_testList.get(g_selected_test_index).setTopScore(score);
+                                    }
+                                    myCompleteListener.onSuccess();
+                                })
+                                .addOnFailureListener(myCompleteListener::onFailure);
                     }
-                    myCompleteListener.onSuccess();
                 })
                 .addOnFailureListener(myCompleteListener::onFailure);
     }

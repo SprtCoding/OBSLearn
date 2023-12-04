@@ -61,6 +61,20 @@
                     android:layout_marginEnd="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Edit"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/secondColor"
+                    android:textSize="18sp"
+                    android:drawablePadding="8dp"
+                    android:id="@+id/edit_btn"
+                    app:drawableStartCompat="@drawable/pen_square_18"
+                    app:drawableTint="@color/secondColor" />
+
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Delete"
                     android:fontFamily="@font/poppins_semibold"
                     android:textColor="#EE404C"

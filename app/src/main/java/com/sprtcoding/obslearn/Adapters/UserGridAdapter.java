@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
@@ -15,33 +17,36 @@ import com.sprtcoding.obslearn.Model.UserModel;
 import com.sprtcoding.obslearn.R;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class UserGridAdapter extends BaseAdapter {
+public class UserGridAdapter extends BaseAdapter implements Filterable {
     Context context;
     List<UserModel> userList;
+    private List<UserModel> filteredList;
     LayoutInflater inflater;
 
     public UserGridAdapter(Context context, List<UserModel> userList) {
         this.context = context;
         this.userList = userList;
+        this.filteredList = new ArrayList<>(userList);
     }
 
     @Override
     public int getCount() {
-        return userList.size();
+        return filteredList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return filteredList.get(i);
     }
 
     @Override
     public long getItemId(int i) {
-        return userList.size();
+        return i;
     }
 
     @Override
@@ -53,7 +58,7 @@ public class UserGridAdapter extends BaseAdapter {
             view = inflater.inflate(R.layout.student_list_grid, null);
         }
 
-        UserModel user = userList.get(position);
+        UserModel user = filteredList.get(position);
 
         TextView stud_name = view.findViewById(R.id.stud_name);
         TextView stud_email = view.findViewById(R.id.stud_email);
@@ -78,5 +83,35 @@ public class UserGridAdapter extends BaseAdapter {
         stud_email.setText(user.getEMAIL_ID());
 
         return view;
+    }
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String filterPattern = charSequence.toString().toLowerCase().trim();
+                filteredList.clear();
+
+                if (filterPattern.isEmpty()) {
+                    filteredList.addAll(userList);
+                } else {
+                    for (UserModel user : userList) {
+                        if (user.getNAME().toLowerCase().contains(filterPattern)
+                                || user.getEMAIL_ID().toLowerCase().contains(filterPattern)) {
+                            filteredList.add(user);
+                        }
+                    }
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = filteredList;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                notifyDataSetChanged();
+            }
+        };
     }
 }

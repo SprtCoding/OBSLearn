@@ -95,7 +95,7 @@
             android:layout_marginBottom="@dimen/_20sdp"
             android:fontFamily="@font/poppins_medium"
             android:textSize="@dimen/_18ssp"
-            android:textColor="@color/black"
+            android:textColor="@color/primary_white"
             android:id="@+id/test_no"/>
 
         <GridLayout
@@ -108,7 +108,7 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/examCardView"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
                 android:layout_column="0"
@@ -159,61 +159,8 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/statisticsCardView"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_row="0"
-                android:layout_column="1"
-                android:layout_gravity="fill"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp"
-                app:cardBackgroundColor="@color/white">
-
-                <LinearLayout
-                    android:padding="@dimen/_10sdp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_gravity="center_vertical|center_horizontal">
-
-                    <ImageView
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:src="@drawable/trophy" />
-
-                    <TextView
-                        android:layout_marginTop="20dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins"
-                        android:text="Best Score"
-                        android:textAlignment="center"
-                        android:letterSpacing=".1"
-                        android:textColor="@color/black"
-                        android:textSize="12sp"/>
-
-                    <TextView
-                        android:id="@+id/b_score_counts"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
                 android:id="@+id/aboutCardView"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
                 android:layout_column="2"

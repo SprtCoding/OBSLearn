@@ -16,10 +16,11 @@ import com.sprtcoding.obslearn.UserMenu.Module.DangerSignOfPregnancy;
 import com.sprtcoding.obslearn.UserMenu.Module.MinorSignOfPregnancy;
 import com.sprtcoding.obslearn.UserMenu.Module.NutritionDuringPregnancyModule;
 import com.sprtcoding.obslearn.UserMenu.Module.PrenatalCareModule;
+import com.sprtcoding.obslearn.UserMenu.Module.Syllabuls;
 
 public class LearnFragment extends Fragment {
     private CardView parental_care_card, nutrition_card, clinic_visit_card, minor_discomfort_card
-    , danger_sign_card;
+    , danger_sign_card, syllabuls_card;
     View view;
 
     @Override
@@ -54,10 +55,16 @@ public class LearnFragment extends Fragment {
             startActivity(i);
         });
 
+        syllabuls_card.setOnClickListener(view1 -> {
+            Intent i = new Intent(getContext(), Syllabuls.class);
+            startActivity(i);
+        });
+
         return view;
     }
 
     private void _init() {
+        syllabuls_card = view.findViewById(R.id.syllabuls_card);
         parental_care_card = view.findViewById(R.id.parental_care_card);
         nutrition_card = view.findViewById(R.id.nutrition_card);
         clinic_visit_card = view.findViewById(R.id.clinic_visit_card);

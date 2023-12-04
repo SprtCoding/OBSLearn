@@ -209,21 +209,21 @@
                     android:paddingEnd="@dimen/_22sdp"
                     app:cornerRadius="@dimen/_5sdp"/>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/twitterLoginBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_medium"
-                    android:text="Login with twitter"
-                    android:textColor="@color/primary_white"
-                    app:iconGravity="textStart"
-                    app:icon="@drawable/twitter"
-                    app:iconTint="@color/primary_white"
-                    android:textSize="@dimen/_11ssp"
-                    android:padding="@dimen/_10sdp"
-                    android:paddingStart="@dimen/_22sdp"
-                    android:paddingEnd="@dimen/_22sdp"
-                    app:cornerRadius="@dimen/_5sdp"/>
+<!--                <com.google.android.material.button.MaterialButton-->
+<!--                    android:id="@+id/twitterLoginBtn"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/poppins_medium"-->
+<!--                    android:text="Login with twitter"-->
+<!--                    android:textColor="@color/primary_white"-->
+<!--                    app:iconGravity="textStart"-->
+<!--                    app:icon="@drawable/twitter"-->
+<!--                    app:iconTint="@color/primary_white"-->
+<!--                    android:textSize="@dimen/_11ssp"-->
+<!--                    android:padding="@dimen/_10sdp"-->
+<!--                    android:paddingStart="@dimen/_22sdp"-->
+<!--                    android:paddingEnd="@dimen/_22sdp"-->
+<!--                    app:cornerRadius="@dimen/_5sdp"/>-->
 
             </LinearLayout>
 
