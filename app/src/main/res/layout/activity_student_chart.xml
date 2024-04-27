@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminMenu.Exams.StudentChart">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="back"
+            android:drawableStart="@drawable/baseline_arrow_back_24"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:drawablePadding="10dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/back_btn"/>
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:fontFamily="@font/poppins_medium"
+            android:id="@+id/testTitle"/>
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:id="@+id/pieChart"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

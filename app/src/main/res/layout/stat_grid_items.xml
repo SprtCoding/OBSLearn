@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_weight="1"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="@dimen/_15sdp"
     app:cardBackgroundColor="@color/white"
@@ -10,7 +11,7 @@
 
     <LinearLayout
         android:layout_gravity="center"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
@@ -71,6 +72,8 @@
             android:text="Cat Name"
             android:textSize="@dimen/_12ssp"
             android:textAlignment="center"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/black"
             android:id="@+id/cat_name"/>

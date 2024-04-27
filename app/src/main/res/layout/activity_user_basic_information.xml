@@ -107,6 +107,33 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="Section"
+                app:hintTextColor="#2E2E2E"
+                android:textColorHint="#2E2E2E"
+                app:startIconDrawable="@drawable/yearschool"
+                android:layout_width="match_parent"
+                app:helperText="Required*"
+                app:helperTextTextColor="#BC5D5D"
+                app:boxStrokeColor="@color/thirdColor"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                app:startIconTint="@color/thirdColor"
+                app:endIconTint="@color/thirdColor"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/sectionCTV"
+                    android:fontFamily="@font/poppins"
+                    android:inputType="none"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/dateBtn"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"

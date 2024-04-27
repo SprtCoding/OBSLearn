@@ -15,6 +15,9 @@
         android:theme="@style/Theme.OBSLearn"
         tools:targetApi="31">
         <activity
+            android:name=".AdminMenu.Exams.StudentChart"
+            android:exported="false" />
+        <activity
             android:name=".UserMenu.Module.Syllabuls"
             android:exported="false" />
         <activity

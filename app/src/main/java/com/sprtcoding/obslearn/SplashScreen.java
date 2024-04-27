@@ -26,6 +26,8 @@ import com.sprtcoding.obslearn.FireStoreDB.MyCompleteListener;
 import com.sprtcoding.obslearn.UserBasicInfo.UserBasicInformation;
 import com.sprtcoding.obslearn.Utility.NetworkChangeListener;
 
+import java.util.Objects;
+
 public class SplashScreen extends AppCompatActivity {
     NetworkChangeListener networkChangeListener = new NetworkChangeListener();
     FirebaseAuth mAuth;
@@ -49,12 +51,6 @@ public class SplashScreen extends AppCompatActivity {
         userRef = mDB.getReference("UsersData");
 
         userDB = FirebaseFirestore.getInstance();
-
-//        Handler handler = new Handler();
-//
-//        handler.postDelayed(() -> {
-//
-//        }, 3000);
     }
 
     @Override
@@ -69,13 +65,15 @@ public class SplashScreen extends AppCompatActivity {
                 if(task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if(document.contains("ACCOUNT_TYPE")) {
-                        String type = document.get("ACCOUNT_TYPE").toString();
-                        int age = Integer.parseInt(document.get("AGE").toString());
-                        String gender = document.get("GENDER").toString();
-                        String dob = document.get("DATE_OF_BIRTH").toString();
+                        String type = document.getString("ACCOUNT_TYPE");
+                        int age = document.getLong("AGE").intValue();
+                        String gender = document.getString("GENDER");
+                        String dob = document.getString("DATE_OF_BIRTH");
+                        String section = document.getString("SECTION");
 
+                        assert type != null;
                         if(type.equals("User")) {
-                            if(age == 0 && gender.equals("") && dob.equals("")) {
+                            if(age == 0 && Objects.equals(gender, "") && Objects.equals(dob, "") || Objects.equals(section, "")) {
 
                                 DBQuery.loadCategories(new MyCompleteListener() {
                                     @Override

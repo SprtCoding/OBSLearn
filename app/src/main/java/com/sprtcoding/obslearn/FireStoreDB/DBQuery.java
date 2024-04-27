@@ -40,12 +40,13 @@ public class DBQuery {
     public static final int ANSWERED = 2;
     public static final int REVIEW = 3;
     public static void createUserData(String email, String name, String id, String accountType, String dob, int age,
-                                      String gender, MyCompleteListener myCompleteListener) {
+                                      String gender, String section, MyCompleteListener myCompleteListener) {
         Map<String, Object> userData = new HashMap<>();
 
         userData.put("USER_ID", id);
         userData.put("EMAIL_ID", email);
         userData.put("NAME", name);
+        userData.put("SECTION", section);
         userData.put("ACCOUNT_TYPE", accountType);
         userData.put("DATE_OF_BIRTH", dob);
         userData.put("AGE", age);
@@ -60,7 +61,7 @@ public class DBQuery {
     }
 
     public static void setUserData(String email, String name, String id, String accountType, String dob, int age,
-                                      String gender, MyCompleteListener myCompleteListener) {
+                                      String gender, String section, MyCompleteListener myCompleteListener) {
         Map<String, Object> userData = new HashMap<>();
 
         userData.put("USER_ID", id);
@@ -70,6 +71,7 @@ public class DBQuery {
         userData.put("DATE_OF_BIRTH", dob);
         userData.put("AGE", age);
         userData.put("GENDER", gender);
+        userData.put("SECTION", section);
 
         DocumentReference userDoc = g_firestore.collection("USERS").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
@@ -84,12 +86,13 @@ public class DBQuery {
         countDoc.update("COUNT", FieldValue.increment(1));
     }
 
-    public static void updateUsers(String dob, int age, String gender, MyCompleteListener myCompleteListener) {
+    public static void updateUsers(String dob, int age, String gender, String section, MyCompleteListener myCompleteListener) {
         Map<String, Object> userData = new HashMap<>();
 
         userData.put("DATE_OF_BIRTH", dob);
         userData.put("AGE", age);
         userData.put("GENDER", gender);
+        userData.put("SECTION", section);
 
         DocumentReference userDoc = g_firestore.collection("USERS").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
 

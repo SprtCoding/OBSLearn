@@ -43,6 +43,7 @@ import com.sprtcoding.obslearn.UserBasicInfo.UserBasicInformation;
 import com.sprtcoding.obslearn.Utility.NetworkChangeListener;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class LoginPage extends AppCompatActivity {
     private TextView _signUpBtn, _forgotPasswordBtn;
@@ -146,13 +147,15 @@ public class LoginPage extends AppCompatActivity {
                 if(task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if(document.contains("ACCOUNT_TYPE")) {
-                        String type = document.get("ACCOUNT_TYPE").toString();
-                        int age = Integer.parseInt(document.get("AGE").toString());
-                        String gender = document.get("GENDER").toString();
-                        String dob = document.get("DATE_OF_BIRTH").toString();
+                        String type = document.getString("ACCOUNT_TYPE");
+                        int age = document.getLong("AGE").intValue();
+                        String gender = document.getString("GENDER");
+                        String dob = document.getString("DATE_OF_BIRTH");
+                        String section = document.getString("SECTION");
 
+                        assert type != null;
                         if(type.equals("User")) {
-                            if(age == 0 && gender.equals("") && dob.equals("")) {
+                            if(age == 0 && Objects.equals(gender, "") && Objects.equals(dob, "") || Objects.equals(section, "")) {
                                 DBQuery.loadCategories(new MyCompleteListener() {
                                     @Override
                                     public void onSuccess() {
@@ -267,7 +270,9 @@ public class LoginPage extends AppCompatActivity {
                                                             String gender = documentSnapshot.getString("GENDER");
                                                             int age = documentSnapshot.getLong("AGE").intValue();
                                                             String bday = documentSnapshot.getString("DATE_OF_BIRTH");
-                                                            if(gender.equals("") && age == 0 && bday.equals("")) {
+                                                            String section = documentSnapshot.getString("SECTION");
+                                                            assert gender != null;
+                                                            if(gender.equals("") && age == 0 && Objects.equals(bday, "") || Objects.equals(section, "")) {
                                                                 DBQuery.loadCategories(new MyCompleteListener() {
                                                                     @Override
                                                                     public void onSuccess() {
@@ -301,7 +306,7 @@ public class LoginPage extends AppCompatActivity {
                                                 }
                                             }else {
                                                 DBQuery.setUserData(account.getEmail(), account.getDisplayName(), FirebaseAuth.getInstance().getCurrentUser().getUid(),
-                                                        "User", "", 0, "", new MyCompleteListener() {
+                                                        "User", "", 0, "", "" ,new MyCompleteListener() {
                                                             @Override
                                                             public void onSuccess() {
                                                                 _loading.dismiss();

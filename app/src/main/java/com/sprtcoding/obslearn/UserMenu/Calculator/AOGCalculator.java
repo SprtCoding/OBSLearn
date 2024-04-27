@@ -94,13 +94,23 @@ public class AOGCalculator extends AppCompatActivity {
             edcCalendar.add(Calendar.DAY_OF_YEAR, 280);
             Date confinementDate = edcCalendar.getTime();
 
+            // Create a Unicode character for the fraction
+            String fractionalDays = String.format(Locale.getDefault(), "%d\u2044%d", remainingDays, 7);
+
+//            String weeksAndDays = weeks + " weeks";
+//            if (remainingDays > 0) {
+//                weeksAndDays += " & " + remainingDays + " days";
+//            }
+
             String weeksAndDays = weeks + " weeks";
             if (remainingDays > 0) {
-                weeksAndDays += " & " + remainingDays + " days";
+                weeksAndDays += " & " + fractionalDays + " days";
             }
 
             expected_date_confinement.setText(sdf.format(confinementDate));
-            aog_in_days.setText(daysDifference + " Days");
+            String aogDays = String.format(Locale.getDefault(), "%d %s", daysDifference, fractionalDays);
+            aog_in_days.setText(aogDays);
+            //aog_in_days.setText(daysDifference + " Days");
             aog_in_weeks.setText(weeksAndDays);
             _trimester.setText(trimester + " Trimester");
         }

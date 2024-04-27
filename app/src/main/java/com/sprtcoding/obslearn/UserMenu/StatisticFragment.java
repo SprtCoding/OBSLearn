@@ -1,6 +1,7 @@
 package com.sprtcoding.obslearn.UserMenu;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,14 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -40,8 +49,12 @@ public class StatisticFragment extends Fragment {
     private CollectionReference userColRef;
     private TextView _fullNameTB, _emailTB;
     private GridView myGrid;
+    private BarChart barChart;
     StatGridAdapter statGridAdapter;
     private List<ScoreModel> scoreModelList = new ArrayList<>();
+    private ArrayList<BarEntry> entries = new ArrayList<>();
+    private List<String> xValues = new ArrayList<>();
+    private List<Float> yValues = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,6 +68,8 @@ public class StatisticFragment extends Fragment {
 
         db = FirebaseFirestore.getInstance();
         userColRef = db.collection("USERS");
+
+        barChart.getAxisRight().setDrawLabels(false);
 
         if(mUser != null) {
             userColRef.document(mUser.getUid())
@@ -80,20 +95,53 @@ public class StatisticFragment extends Fragment {
                                 scoreModelList.clear();
                                 for(QueryDocumentSnapshot doc : value) {
                                     scoreModelList.add(
+                                            0,
                                             new ScoreModel(
                                                     doc.getString("ID"),
                                                     doc.getString("TOTAL_SCORE_NOT_PERCENT"),
                                                     doc.getLong("TOTAL_SCORE").intValue()
                                             )
                                     );
+
+                                    xValues.add(doc.getString("ID"));
+                                    yValues.add(Objects.requireNonNull(doc.getLong("TOTAL_SCORE")).floatValue());
+                                    for(int i = 0; i < yValues.size(); i++) {
+                                        entries.add(new BarEntry(i, yValues.get(i)));
+                                    }
+
                                 }
+
+                                YAxis yAxis = barChart.getAxisLeft();
+                                yAxis.setAxisMaximum(0f);
+                                yAxis.setAxisMaximum(100f);
+                                yAxis.setAxisLineWidth(2f);
+                                yAxis.setAxisLineColor(Color.BLACK);
+                                yAxis.setLabelCount(value.size());
+
+                                BarDataSet barDataSet = new BarDataSet(entries, "Grades");
+                                barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+
+                                BarData barData = new BarData(barDataSet);
+                                barChart.setData(barData);
+
+                                barChart.getDescription().setEnabled(false);
+                                barChart.invalidate();
+
+                                barChart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(xValues));
+                                barChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+                                barChart.getXAxis().setGranularity(1f);
+                                barChart.getXAxis().setGranularityEnabled(true);
+
                                 statGridAdapter = new StatGridAdapter(getContext(), scoreModelList);
+                                statGridAdapter.notifyDataSetChanged();
                                 myGrid.setAdapter(statGridAdapter);
+                                myGrid.smoothScrollToPosition(0);
                             }else {
                                 Toast.makeText(getContext(), "No Data!", Toast.LENGTH_SHORT).show();
                             }
                         }else {
-                            Toast.makeText(getContext(), ""+error.getMessage(), Toast.LENGTH_SHORT).show();
+                            assert error != null;
+                            Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
         }
@@ -102,6 +150,7 @@ public class StatisticFragment extends Fragment {
     }
 
     private void _var() {
+        barChart = view.findViewById(R.id.gradeBarChart);
         _fullNameTB = view.findViewById(R.id.fullNameTB);
         _emailTB = view.findViewById(R.id.emailTB);
         myGrid = view.findViewById(R.id.score_grid_view);

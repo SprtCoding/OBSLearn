@@ -12,12 +12,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.datepicker.CalendarConstraints;
-import com.google.android.material.datepicker.DateValidatorPointForward;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -29,11 +26,10 @@ import com.sprtcoding.obslearn.UserDashBoard;
 import com.sprtcoding.obslearn.Utility.NetworkChangeListener;
 
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.TimeZone;
 
 public class UserBasicInformation extends AppCompatActivity {
-    private AutoCompleteTextView _genderCTV;
+    private AutoCompleteTextView _genderCTV, _sectionCTV;
     private MaterialButton _dateBtn, _saveBtn;
     private TextInputEditText _ageET;
     private LoadingDialog _loading;
@@ -58,6 +54,23 @@ public class UserBasicInformation extends AppCompatActivity {
         mDb = FirebaseDatabase.getInstance();
         userRef = mDb.getReference("UsersData");
 
+        String[] section = new String[] {
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F"
+        };
+
+        ArrayAdapter<String> sectionAdapter = new ArrayAdapter<>(
+                this,
+                R.layout.gender_dropdown_item,
+                section
+        );
+
+        _sectionCTV.setAdapter(sectionAdapter);
+
         //gender dropdown
         String[] gender = new String[] {
                 "Male",
@@ -78,14 +91,10 @@ public class UserBasicInformation extends AppCompatActivity {
 
         long today = MaterialDatePicker.todayInUtcMilliseconds();
 
-//        CalendarConstraints.Builder calendarConstraintBuilder = new CalendarConstraints.Builder();
-//        calendarConstraintBuilder.setValidator(DateValidatorPointForward.now());
-
-        MaterialDatePicker.Builder datePickerBuilder = MaterialDatePicker.Builder.datePicker();
+        MaterialDatePicker.Builder<Long> datePickerBuilder = MaterialDatePicker.Builder.datePicker();
         datePickerBuilder.setTitleText("Select Date of Birth");
         datePickerBuilder.setSelection(today);
-//        datePickerBuilder.setCalendarConstraints(calendarConstraintBuilder.build());
-        final MaterialDatePicker materialDatePicker = datePickerBuilder.build();
+        final MaterialDatePicker<Long> materialDatePicker = datePickerBuilder.build();
 
         materialDatePicker.addOnPositiveButtonClickListener(selection -> _dateBtn.setText(materialDatePicker.getHeaderText()));
 
@@ -97,6 +106,7 @@ public class UserBasicInformation extends AppCompatActivity {
             _loading.show();
             String _age = _ageET.getText().toString();
             String _gender = _genderCTV.getText().toString();
+            String _section = _sectionCTV.getText().toString();
             String _bod = _dateBtn.getText().toString();
 
             if(TextUtils.isEmpty(_age)) {
@@ -105,30 +115,14 @@ public class UserBasicInformation extends AppCompatActivity {
             }else if(TextUtils.isEmpty(_gender)) {
                 Toast.makeText(this, "Please select your gender!", Toast.LENGTH_SHORT).show();
                 _loading.dismiss();
+            }else if(TextUtils.isEmpty(_section)) {
+                Toast.makeText(this, "Please select your section!", Toast.LENGTH_SHORT).show();
+                _loading.dismiss();
             }else if(TextUtils.isEmpty(_bod)) {
                 Toast.makeText(this, "Please select your Birthdate!", Toast.LENGTH_SHORT).show();
                 _loading.dismiss();
             }else {
-//                HashMap<String, Object> map = new HashMap<>();
-//                map.put("Age", _age);
-//                map.put("Gender", _gender);
-//                map.put("DateOfBirth", _bod);
-//
-//                FirebaseUser _user = mAuth.getCurrentUser();
-//
-//                userRef.child(_user.getUid()).updateChildren(map).addOnCompleteListener(task -> {
-//                    if(task.isSuccessful()) {
-//                        _loading.dismiss();
-//                        Intent gotoDashboard = new Intent(this, UserDashBoard.class);
-//                        startActivity(gotoDashboard);
-//                        finish();
-//                    }else {
-//                        _loading.dismiss();
-//                        Toast.makeText(this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-
-                DBQuery.updateUsers(_bod, Integer.parseInt(_age), _gender, new MyCompleteListener() {
+                DBQuery.updateUsers(_bod, Integer.parseInt(_age), _gender, _section, new MyCompleteListener() {
                     @Override
                     public void onSuccess() {
                         Toast.makeText(UserBasicInformation.this, "Account information saved!", Toast.LENGTH_SHORT).show();
@@ -154,6 +148,7 @@ public class UserBasicInformation extends AppCompatActivity {
         _dateBtn = findViewById(R.id.dateBtn);
         _saveBtn = findViewById(R.id.saveBtn);
         _ageET = findViewById(R.id.ageET);
+        _sectionCTV = findViewById(R.id.sectionCTV);
     }
 
     @Override

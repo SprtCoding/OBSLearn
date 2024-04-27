@@ -9,6 +9,8 @@ import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -96,7 +98,7 @@ public class SignUpPage extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email, pass).addOnSuccessListener(authResult -> {
 
             DBQuery.createUserData(email, fName + " " + lName, FirebaseAuth.getInstance().getCurrentUser().getUid(),
-                    accountType, "", 0, "", new MyCompleteListener() {
+                    accountType, "", 0, "", "", new MyCompleteListener() {
                         @Override
                         public void onSuccess() {
                             Toast.makeText(SignUpPage.this, "Account created successfully!", Toast.LENGTH_SHORT).show();
@@ -112,21 +114,6 @@ public class SignUpPage extends AppCompatActivity {
                             Toast.makeText(SignUpPage.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
-
-//            HashMap<String, Object> map = new HashMap<>();
-//            map.put("Fullname", fName + " " + lName);
-//            map.put("Email", email);
-//            map.put("AccountType", accountType);
-//            map.put("UID", FirebaseAuth.getInstance().getCurrentUser().getUid());
-//
-//            userRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(map).addOnCompleteListener(task -> {
-//                if(task.isSuccessful()) {
-//                    _loading.dismiss();
-//                    Intent gotoLoginPage = new Intent(SignUpPage.this, LoginPage.class);
-//                    startActivity(gotoLoginPage);
-//                    finish();
-//                }
-//            });
 
             DBQuery.addUserCount();
 

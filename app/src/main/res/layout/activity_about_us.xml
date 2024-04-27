@@ -34,10 +34,11 @@
             android:gravity="center_horizontal">
 
             <ImageView
+                android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="320dp"
+                android:layout_height="220dp"
                 android:src="@drawable/about_us"
-                android:scaleType="fitXY"/>
+                android:scaleType="centerCrop"/>
 
             <GridLayout
                 android:scrollbars="vertical"
@@ -300,60 +301,26 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SUGGESTED LEARNING RESOURCES:"
-                android:layout_gravity="start"
+                android:text="Credits"
                 android:layout_marginTop="20dp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="16sp"/>
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="32sp"
+                android:textAllCaps="true"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Book/Manual"
-                android:layout_gravity="start"
-                android:textColor="@color/black"
-                android:fontFamily="@font/poppins"
-                android:textSize="14sp"/>
+            <ImageView
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:elevation="5dp"
+                android:src="@drawable/credits_1"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/l_1"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_gravity="start"
-                android:drawablePadding="10dp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/poppins"
-                android:textSize="12sp"
-                app:drawableStartCompat="@drawable/bullet_18" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/l_2"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_gravity="start"
-                android:drawablePadding="10dp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/poppins"
-                android:textSize="12sp"
-                app:drawableStartCompat="@drawable/bullet_18" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/l_3"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_gravity="start"
-                android:drawablePadding="10dp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/poppins"
-                android:textSize="12sp"
-                app:drawableStartCompat="@drawable/bullet_18" />
+            <ImageView
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:elevation="5dp"
+                android:src="@drawable/credits_2"/>
 
         </LinearLayout>
 

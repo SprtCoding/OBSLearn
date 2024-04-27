@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
+import com.sprtcoding.obslearn.AdminMenu.Exams.StudentChart;
 import com.sprtcoding.obslearn.FireStoreDB.DBQuery;
 import com.sprtcoding.obslearn.Model.CatListModel;
 import com.sprtcoding.obslearn.Model.ScoreModel;
@@ -43,7 +44,7 @@ public class StatGridAdapter extends BaseAdapter {
         return scoreModelList.size();
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "InflateParams"})
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
         if(inflater == null)
@@ -66,6 +67,14 @@ public class StatGridAdapter extends BaseAdapter {
         my_progress.setProgress(scoreModel.getTOTAL_SCORE());
 
         scoreNum.setText(scoreModel.getScoreNum());
+
+        view.setOnClickListener(v -> {
+            Intent i = new Intent(context, StudentChart.class);
+            i.putExtra("id", scoreModel.getID());
+            i.putExtra("total_score", scoreModel.getTOTAL_SCORE());
+            i.putExtra("total_score_num", scoreModel.getScoreNum());
+            context.startActivity(i);
+        });
 
         return view;
     }

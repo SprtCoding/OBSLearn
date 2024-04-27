@@ -67,6 +67,40 @@
             android:textColor="@color/primary_white"
             android:textSize="20sp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:letterSpacing=".1"
+            android:text="Summary of Grades"
+            android:textColor="@color/primary_white"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:hint="Section"
+            app:hintTextColor="#2E2E2E"
+            android:textColorHint="#2E2E2E"
+            app:startIconDrawable="@drawable/settings_sliders_18"
+            android:layout_width="match_parent"
+            app:boxStrokeColor="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            app:startIconTint="@color/thirdColor"
+            app:endIconTint="@color/white"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/sectionCTV"
+                android:fontFamily="@font/poppins"
+                android:inputType="none"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
         <GridView
             android:id="@+id/student_grid_view"
             android:layout_width="match_parent"
